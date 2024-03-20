@@ -15,14 +15,16 @@ def process_agent_data(
     """
     # Implement it
     processed_data = ProcessedAgentData()
+    x_coord = agent_data.x_coord
+    y_coord = agent_data.y_coord
     z_coord = agent_data.z_coord
-    if z_coord < 16550:
-        state = "pothole"
-    elif 16550 < z_coord < 17550:
+    if z_coord < 16550 and x_coord < -500 and y_coord < -500 :
+        state = "pit"
+    elif 16550 < z_coord < 17550 and -500 < x_coord < 500 and -500 < y_coord < 500:
         state = "road"
-    else:
-        state = "bump"
-
+    elif z_coord > 17550 and x_coord > 500 and y_coord > 500 :
+        state = "pothole"
+        
     processed_data.agent_data = agent_data
     processed_data.road_state = state
     return processed_data
