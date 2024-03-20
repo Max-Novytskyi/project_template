@@ -18,13 +18,13 @@ def process_agent_data(
     x_coord = agent_data.x_coord
     y_coord = agent_data.y_coord
     z_coord = agent_data.z_coord
-    if z_coord < 16550 and x_coord < -500 and y_coord < -500 :
+    if y_coord < -500 :
         state = "pit"
-    elif 16550 < z_coord < 17550 and -500 < x_coord < 500 and -500 < y_coord < 500:
+    elif -500 < y_coord < 500:
         state = "road"
-    elif z_coord > 17550 and x_coord > 500 and y_coord > 500 :
+    else :
         state = "pothole"
-        
+
     processed_data.agent_data = agent_data
     processed_data.road_state = state
     return processed_data
