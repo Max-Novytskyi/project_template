@@ -14,6 +14,7 @@ class GpsData(BaseModel):
 
 
 class AgentData(BaseModel):
+    user_id: int
     accelerometer: AccelerometerData
     gps: GpsData
     timestamp: datetime
@@ -30,3 +31,12 @@ class AgentData(BaseModel):
             raise ValueError(
                 "Invalid timestamp format. Expected ISO 8601 format (YYYY-MM-DDTHH:MM:SSZ)."
             )
+
+
+class ParkingData(BaseModel):
+    empty_count: int
+    gps: GpsData
+
+
+class AgentDataIn(AgentData):
+    parking: ParkingData
