@@ -4,11 +4,8 @@ from kivy_garden.mapview import MapMarker, MapView
 from kivy.clock import Clock
 from lineMapLayer import LineMapLayer
 from datasource import Datasource
-<<<<<<< HEAD
 import csv
 from functools import partial
-=======
->>>>>>> 89e6a7aa9843160f9dd6e19468826d53df3d0f1b
 
 
 class MapViewApp(App):
@@ -38,10 +35,6 @@ class MapViewApp(App):
         Викликається регулярно для оновлення мапи
         """
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 89e6a7aa9843160f9dd6e19468826d53df3d0f1b
     def update_car_marker(self, point):
         self.mapview.remove_marker(self.car_marker)
         self.car_marker.lat = point[0]
