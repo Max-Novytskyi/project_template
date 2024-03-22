@@ -107,9 +107,7 @@ class LineMapLayer(MapLayer):
         map_view = self.parent
         self.zoom = map_view.zoom
         self.lon = map_view.lon
-        self.lat = map_view.lat
-
-        # When zooming we must undo the current scatter transform
+        self.lat = map_view.lat  # When zooming we must undo the current scatter transform
         # or the animation distorts it
         scatter = map_view._scatter
         sx, sy, ss = scatter.x, scatter.y, scatter.scale
